@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans:
+    var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+  --font-mono:
+    var(--font-plex-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Warm neutrals */
+  --color-paper: #faf9f6;
+  --color-parchment: #f1eee6;
+  --color-card: #ffffff;
+  --color-ink: #1c1917;
+  --color-ink-soft: #44403c;
+  --color-faint: #78716c;
+  --color-line: #e3ddcf;
+  --color-line-strong: #cfc5ae;
+
+  /* Restrained signal red */
+  --color-signal: #b42318;
+  --color-signal-deep: #7f1d14;
+  --color-signal-tint: #faf0ed;
+
+  /* Evidence semantics — always paired with a text label, never color-alone */
+  --color-fact: #166534;
+  --color-fact-tint: #edf6ef;
+  --color-inference: #92400e;
+  --color-inference-tint: #fbf3e6;
+  --color-gap: #57534e;
+  --color-gap-tint: #f0ede6;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Keep anchored sections and focused elements clear of the sticky header. */
+  scroll-padding-top: 92px;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--color-signal);
+  color: #fff;
+}
+
+/* Visible, consistent keyboard focus everywhere. */
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
